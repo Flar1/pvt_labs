@@ -64,8 +64,7 @@ void run_parallel(int m, int n, int num_threads)
     t_parallel = wtime() - t_parallel;
 
     double speedup = t_serial / t_parallel;
-
-    printf("Elapsed time (serial, %d threads): %.6f sec.\n", num_threads, t_serial);
+    printf("Elapsed time (serial) %.6f sec.\n", t_serial);
     printf("Elapsed time (parallel, %d threads): %.6f sec.\n", num_threads, t_parallel);
     printf("speedup: %.6lf\n",speedup);
     free(a);
