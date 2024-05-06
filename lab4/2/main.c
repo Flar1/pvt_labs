@@ -180,12 +180,14 @@ double main_run_paralel(int n, int n_threads)
     double dt = 1e-5;
     ttotal = -wtime();
 #pragma omp parallel
+    {
     for (double t = 0; t <= 1; t += dt)
     { // Цикл по времени (модельному)
         calculate_forces_paralel(p, f, m, n);
 #pragma omp barrier
         move_particles_parallel(p, f, v, m, n, dt);
 #pragma omp barrier
+    }
     }
     ttotal += wtime();
     printf("# NBody (n=%d)\n", n);
@@ -200,7 +202,7 @@ double main_run_paralel(int n, int n_threads)
 
 int main(int argc, char *argv[])
 {
-    int n = 50;
+    int n = 100;
     double time_pos = main_run(n);
     for (int i = 2; i <= 8; i+=2)
     {

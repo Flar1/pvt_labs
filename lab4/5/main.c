@@ -156,7 +156,7 @@ void move_particles_parallel(
     int n,
     float dt)
 {
-#pragma omp for nowait
+#pragma omp for
     for (int i = 0; i < n; i++)
     {
         struct particle dv = {
@@ -230,7 +230,7 @@ double main_run_paralel(int n, int n_threads)
 
 int main(int argc, char *argv[])
 {
-    int n = 50;
+    int n = 100;
     double time_pos = main_run(n);
     for (int i = 2; i <= 8; i+=2)
     {
