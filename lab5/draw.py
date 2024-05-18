@@ -43,4 +43,4 @@ def draw(filenames, labels):
     #fig.savefig('chart.pdf', dpi=300)
 
 if __name__ == "__main__":
-    draw(["1000,10^8.txt", "10000,10^9.txt"], ["1000","10000"])
+    draw(["1000,10^8.txt", "10000,10^9.txt"], ["1000, 10^8","10000,10^9"])

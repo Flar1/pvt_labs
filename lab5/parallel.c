@@ -97,8 +97,9 @@ int main()
     t = wtime() - t;
     printf("%lf - время последовательной программы\n", t);
 // quicksort(arr, 0, N - 1);
-    for (int i = 2 ;i < 8; i+=2)
+    for (int i = 2 ;i <= 8; i+=2)
     {
+        init(&arr);
         double time = wtime();
     #pragma omp parallel num_threads(i)
         {
