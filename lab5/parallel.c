@@ -55,7 +55,7 @@ void quicksort_tasks(int *v, int low, int high)
     }
     else
     {
-#pragma omp task untied // Открепить задачу от потока (задачу может выполнять любой поток)
+#pragma omp task untied
         {
             quicksort_tasks(v, low, j);
         }
