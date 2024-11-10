@@ -25,8 +25,10 @@ int main(int argc, char **argv)
     double sq[2], delta = 1;
     double start_time = 0;
     double finish_time = 0;
+
     if (rank == 0)
         start_time = MPI_Wtime();
+
     for (k = 0; delta > eps; n *= 2, k ^= 1)
     {
         int points_per_proc = n / commsize;
@@ -41,13 +43,15 @@ int main(int argc, char **argv)
         if (n > N)
             delta = fabs(sq[k] - sq[k ^ 1]) / 3.0;
     }
+
     if (rank == 0)
     {
         finish_time = MPI_Wtime();
         printf("Time = %f; Result = %f; Runge rule: EPS %e, n %d\n", finish_time - start_time, sq[k], eps, n / 2);
-        double speedup = 2.353567/(finish_time - start_time);
+        double speedup = 2.353567 / (finish_time - start_time);
         printf("Speedup = %lf", speedup);
     }
+    
     MPI_Finalize();
     return 0;
 }

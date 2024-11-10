@@ -28,8 +28,10 @@ int main(int argc, char **argv)
     double s = 0;
     double start_time = 0;
     double finish_time = 0;
+
     if (rank == 0)
         start_time = MPI_Wtime();
+
     for (int i = rank; i < n; i += commsize)
     {
         double x = getrand() * -1;
@@ -40,10 +42,12 @@ int main(int argc, char **argv)
             s += func(x, y);
         }
     }
+
     int gin = 0;
     MPI_Reduce(&in, &gin, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
     double gsum = 0.0;
     MPI_Reduce(&s, &gsum, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
+    
     if (rank == 0)
     {
         double v = gin / n;
