@@ -1,0 +1,6 @@
+Validation failed: elem 0 = 392002944.000000 (real value 392014000.000000)
+DGEMV: matrix-vector product (c[m] = a[m, n] * b[n]; m = 28000, n = 28000)
+Memory used: 2990 MiB
+Elapsed time (16 procs): 0.728560 sec.
+Speedup: 13.991438
+Performance: 2.15 GFLOPS
