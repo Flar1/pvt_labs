@@ -1,0 +1,8 @@
+Matrix:
+  4.00   7.00   8.00   6.00 
+  6.00   6.00   1.00   3.00 
+  6.00   9.00   9.00   6.00 
+  4.00   1.00   8.00   6.00 
+
+Determinant of the matrix: -3.600000e+02
+Gaussian Elimination (MPI): n 4, time (sec) 0.000368
