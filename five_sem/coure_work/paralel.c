@@ -73,6 +73,10 @@ int main(int argc, char *argv[])
     double global_det = 1.0;
     MPI_Reduce(&local_det, &global_det, 1, MPI_DOUBLE, MPI_PROD, 0, MPI_COMM_WORLD);
     t = MPI_Wtime() - t;
+
+    double tmax = 0;
+    MPI_Reduce(&t, &tmax, 1, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
+
     free(tmp);
     free(rows);
     free(a);
@@ -80,7 +84,7 @@ int main(int argc, char *argv[])
     if (rank == 0)
     {
         printf("Gaussian Elimination (MPI): n %d, time (sec) %.6f\n", n, t);
-        printf("Speedup :%lf \n", ((328.534671) / t));
+        printf("Speedup :%lf \n", ((328.534671) / tmax));
     }
 
     MPI_Finalize();
