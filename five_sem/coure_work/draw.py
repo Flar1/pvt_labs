@@ -29,5 +29,5 @@ plt.ylabel("Ускорение")
 plt.xticks(processes1)  # Устанавливаем тики по количеству процессов первого графика
 plt.legend()
 plt.grid()
-plt.savefig("speedup_chart.pdf")  # Сохранение в формате PDF
+plt.savefig("speedup_chart.svg", format='svg')  # Сохранение в формате SVG
 plt.show()
